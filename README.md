@@ -1,2 +1,2 @@
-# thinkpad_endeavour
-Configuration for my personal Laptop
+# Thinkpad EndeavourOS Dotfiles
+Configuration for my personal T440p Laptop running EndeavourOS using stow
