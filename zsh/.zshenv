@@ -24,4 +24,6 @@ export NNN_FIFO=/tmp/nnn.fifo
 export PATH="$PATH:${$(find ~/.local/bin -type d -printf %p:)%%:}"
 export PATH="$HOME/.local/share/cargo/bin:$PATH"
 export PATH="$HOME/.local/share/go:$PATH"
+export PATH="$HOME/.local/share/go/bin:$PATH"
 export PATH="$HOME/.local/share/npm-global/bin:$PATH"
+export PATH="$HOME/.emacs.d/bin:$PATH"
