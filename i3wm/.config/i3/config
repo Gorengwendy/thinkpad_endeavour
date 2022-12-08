@@ -168,13 +168,19 @@ bindcode $mod+Shift+90 	 move container to workspace  $ws10
 ######################################
 
 # start a terminal
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec xfce4-terminal
 
 # kill focused window
 bindsym $mod+c kill
 
 # exit-menu
 bindsym $mod+Shift+e exec ~/.config/i3/scripts/powermenu
+
+
+# bindsym $mod+b exec xdotool type $(grep -v '^#' ~/bookmark | dmenu -i -l 50 | cut -d' ' -f1)
+bindsym $mod+b exec sleep buku-rofi
+# bindsym $mod+Shift+b exec bookmarkthis
+# bindsym $mod+Alt+b exec neovide ~/bookmark
 
 # Lock the system
 # lock with a picture:
@@ -201,7 +207,7 @@ bindsym XF86MonBrightnessDown exec xbacklight -5
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
-bindsym $mod+b focus up
+# bindsym $mod+b focus up
 bindsym $mod+o focus right
 
 # alternatively, you can use the cursor keys:
@@ -213,7 +219,7 @@ bindsym $mod+Right focus right
 # move focused window
 bindsym $mod+Shift+j move left
 bindsym $mod+Shift+k move down
-bindsym $mod+Shift+b move up
+# bindsym $mod+Shift+b move up
 bindsym $mod+Shift+o move right
 
 # alternatively, you can use the cursor keys:
@@ -274,9 +280,11 @@ bindsym $mod+p exec /usr/local/bin/switch-audio-port
 bindsym $mod+w exec /usr/bin/firefox
 bindsym $mod+Shift+w exec /usr/bin/librewolf
 # bindsym $mod+Shift+b exec /usr/bin/brave
-bindsym $mod+Shift+d exec /usr/bin/discord
+# bindsym $mod+Shift+d exec /usr/bin/discord
 bindsym $mod+n exec /usr/bin/pcmanfm
-bindsym $mod+Shift+Print exec "xdotool getmouselocation >> ~/mouseLocation"
+bindsym $mod+m exec /usr/bin/thunderbird
+bindsym $mod+Shift+q exec /usr/bin/keepassxc
+# bindsym $mod+Shift+Print exec "xdotool getmouselocation >> ~/mouseLocation"
 bindsym Print exec "flameshot gui"
 # bindsym $mod+x exec "anamnesis -b"
 
@@ -336,6 +344,7 @@ for_window [class=(?i)Whatsapp] focus
 for_window [class=Thunar] focus
 for_window [class=(?i)pcmanfm] focus
 for_window [class=Thunderbird] focus
+for_window [class=(?u)keepassxc] focus
 for_window [class=TelegramDesktop] focus
 
 ##############
