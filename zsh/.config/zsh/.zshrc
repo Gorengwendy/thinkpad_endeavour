@@ -1,27 +1,22 @@
-# Enable Powerlevel10k instant prompt. 
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+# Antigen
+source ~/.config/zsh/antigen.zsh
 
-# Antigen Sourcing
-typeset -a ANTIGEN_CHECK_FILES=(${ZDOTDIR:-~}/.zshrc ${ZDOTDIR:-~}/antigen.zsh)
-source $HOME/.config/zsh/antigen.zsh
-
-# Load oh-my-zsh's library
 antigen use oh-my-zsh
 
-# Bundle
+# Bundles from the default repo (robbyrussell's oh-my-zsh).
 antigen bundle git
+antigen bundle heroku
+antigen bundle pip
+antigen bundle lein
+antigen bundle command-not-found
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle zsh-users/zsh-completions
-# antigen bundle wting/autojump
-# antigen bundle supercrabtree/k
 
-# Theme
-antigen theme romkatv/powerlevel10k
 
-# Tell antigen that you're done
+# Load the theme.
+#antigen theme robbyrussell
+antigen theme simple
+
 antigen apply
 
 
@@ -33,11 +28,11 @@ antigen apply
 
 HISTSIZE=1000
 SAVEHIST=1000
-HISTFILE=~/.cache/zsh/history
+HISTFILE=~/.local/state/zsh/history
 
-setopt autocd extendedglob nomatch
+setopt autocd extendedglob nomatch notify
 unsetopt beep
-# bindkey -v
+bindkey -e
 
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
@@ -45,13 +40,7 @@ zstyle :compinstall filename '/home/wendy/.config/zsh/.zshrc'
 
 autoload -Uz compinit 
 compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
-# End of lines added by compinstall
 
-# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
-[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
-
-
-# Custom Aliases
 
 # Custom Scripts
 # NNN File Explorer
@@ -83,12 +72,6 @@ n ()
             rm -f "$NNN_TMPFILE" > /dev/null
     fi
 }
-
-# Pywal 
-(cat ~/.cache/wal/sequences &)
-
-#Thefuck
-eval $(thefuck --alias)
 
 # LazyGit
 lg()
